@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Our Song | Vaibhavi's Birthday</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+    
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      min-height: 100vh;
+    }
+    
+    .song-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+    }
+    
+    .birthday-text {
+      font-family: 'Dancing Script', cursive;
+    }
+    
+    .message-text {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .nav-button {
+      transition: all 0.3s ease;
+    }
+    
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+    
+    .lyrics {
+      white-space: pre-line;
+      line-height: 2;
+    }
+    
+    .heart-float {
+      position: absolute;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+  </style>
+</head>
+<body class="p-4 py-10">
+  <div class="max-w-3xl mx-auto">
+    <!-- Navigation -->
+    <div class="flex justify-center gap-4 mb-10">
+      <a href="index.html" class="nav-button inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-full shadow-lg">
+        Birthday Wishes ❤️
+      </a>
+      <a href="memories.html" class="nav-button inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-full shadow-lg">
+        Our Memories 📸
+      </a>
+    </div>
+    
+    <!-- Song Header -->
+    <div class="text-center mb-10">
+      <h1 class="birthday-text text-5xl md:text-6xl font-bold text-pink-800 mb-2">Our Special Song</h1>
+      <p class="text-xl text-pink-600">That always reminds me of you</p>
+    </div>
+    
+    <!-- Song Card -->
+    <div class="song-card rounded-lg p-6 md:p-8 shadow-xl mb-8">
+      <div class="text-center mb-8">
+        <h2 class="birthday-text text-3xl text-pink-700 mb-1" id="song-title">Aapki Aankhon mein kuch</h2>
+        <p class="message-text text-gray-600" id="song-artist">Kishore Kumar , Lata Mangeshkar</p>
+      </div>
+      
+      <div class="lyrics message-text text-gray-800 text-lg text-center" id="song-lyrics">
+        Aap kee aankhon mein  
+        kuch mahake hue se raaj hain  
+        Aap kee aankhon mein  
+        kuch mahake hue se raaj hain  
+        Aap se bhee khubasurat  
+        aap ke andaaz hain  
+        Aap kee aankhon mein  
+        kuch mahake hue se raaj hain  
+
+      </div>
+    </div>
+    
+    <!-- Dedication -->
+    <div class="song-card rounded-lg p-6 md:p-8 shadow-xl">
+      <p class="message-text text-gray-800 text-lg leading-relaxed mb-4">
+        Every time I hear this song, it reminds me of you because...
+      </p>
+      <p class="message-text text-gray-800 text-lg leading-relaxed">
+       Iss gaane mein aap ki aankhon ki baare mein baat ki gayi hai. Joh ki boht pyari hain.
+        Infact aap hi boht jyada pyaari hain
+      </p>
+    </div>
+  </div>
+  
+  <!-- Floating Hearts -->
+  <div id="hearts-container"></div>
+  
+  <script>
+    // Create floating hearts
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('hearts-container');
+      const colors = ['#ff9a9e', '#fad0c4', '#fbc2eb', '#ffb7b7'];
+      
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.className = 'heart-float';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.opacity = Math.random() * 0.5 + 0.3;
+        heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+        heart.style.animationDelay = (Math.random() * 5) + 's';
+        container.appendChild(heart);
+      }
+      
+      // You can pre-fill the song details here if you want
+      // document.getElementById('song-title').textContent = "Perfect";
+      // document.getElementById('song-artist').textContent = "Ed Sheeran";
+      // document.getElementById('song-lyrics').textContent = "I found a love for me\nDarling just dive right in...";
+    });
+  </script>
+</body>
+</html>
